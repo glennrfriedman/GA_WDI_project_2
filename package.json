@@ -15,5 +15,19 @@
   "bugs": {
     "url": "https://github.com/glennrfriedman/GA_WDI_project_2/issues"
   },
-  "homepage": "https://github.com/glennrfriedman/GA_WDI_project_2#readme"
+  "homepage": "https://github.com/glennrfriedman/GA_WDI_project_2#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "convert-time": "^0.3.0",
+    "countdown": "^2.6.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.1",
+    "express-session": "^1.15.6",
+    "mustache-express": "^1.2.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg-promise": "^6.10.2"
+  }
 }
