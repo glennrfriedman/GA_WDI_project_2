@@ -10,16 +10,20 @@ const API_URL = 'http://api.tvmaze.com/search/shows?q=';
 const Shows = {};
 
 // call to get all show data from the api 
-Shows.findAll = (req, res, next) => {
+Shows.search = (req, res, next) => {
 	// get searchbar input
-	const search = req.body.searchbar;
-	// 	
+	const search = req.body.input;
+	
+	console.log('Search input: ' + req.body.input);
+	console.log('--------------------------------'); 	
+	
 	axios({
-		url: 'API_URL',
+		url: `http://api.tvmaze.com/search/shows?q=${search}`,
 		method: 'GET'
 	}).then(tvData => {
-		console.log(tvData);
 		res.locals.tvData = tvData;
+		console.log(res.locals.tvData.data);
+		console.log('--------------------------------');
 		next();
 	}).catch( err => {
 		console.log(`error fetching all train data: ${err}`)

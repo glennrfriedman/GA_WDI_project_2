@@ -14,8 +14,12 @@
 <body>
 	<h1>This is the profile page</h1>	
 
-	<input type="text" id="show_search" />
-  <button id="submit">Search</button>
+	<!-- <input type="text" id="show_search" />
+  <button id="submit">Search</button> -->
+
+   <form action="/tvtime/search" method="POST">
+          <input placeholder="Search for your shows..." name="input" type="text"/>
+   </form>
 
 	<!-- logout to index.html (landing page) -->
 	<a href="/" class="logout">Logout</a> 
