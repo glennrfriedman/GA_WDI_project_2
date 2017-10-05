@@ -12,15 +12,14 @@ router.get('/profile',
 });
 
 
+// show search
 router.post('/search',
-	auth.restrict,  
+	auth.restrict, 
+	// returns all search results in an JSON from model
 	Shows.search, 
-	// Message.saveUserInput,
-	// Message.fetchBotResponse,
- //  Message.saveBotResponse,
   (req, res) => {
   	// console.log('TV DATA: ', res.locals.tvData);
-  res.redirect('/tvtime/profile');
+  res.render('shows/profile', {show: res.locals.tvData});
 });
 
 module.exports = router;

@@ -21,6 +21,15 @@
           <input placeholder="Search for your shows..." name="input" type="text"/>
    </form>
 
+   {{#show}}
+	<div>
+		<img src="" alt="">
+		<p>{{name}}</p>
+		<p>{{status}}</p>
+	</div>
+	{{/show}}
+
+
 	<!-- logout to index.html (landing page) -->
 	<a href="/" class="logout">Logout</a> 
 	

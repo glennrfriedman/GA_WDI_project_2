@@ -21,8 +21,10 @@ Shows.search = (req, res, next) => {
 		url: `http://api.tvmaze.com/search/shows?q=${search}`,
 		method: 'GET'
 	}).then(tvData => {
-		res.locals.tvData = tvData;
-		console.log(res.locals.tvData.data);
+		// tvData.data => returns all shows matched with search results 
+		// each show is an object with score and show info which is another object
+		res.locals.tvData = tvData.data[0].show;
+		console.log(res.locals.tvData);
 		console.log('--------------------------------');
 		next();
 	}).catch( err => {
