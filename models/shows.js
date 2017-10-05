@@ -9,7 +9,11 @@ const API_URL = 'http://api.tvmaze.com/search/shows?q=';
 
 const Shows = {};
 
+// call to get all show data from the api 
 Shows.findAll = (req, res, next) => {
+	// get searchbar input
+	const search = req.body.searchbar;
+	// 	
 	axios({
 		url: 'API_URL',
 		method: 'GET'
