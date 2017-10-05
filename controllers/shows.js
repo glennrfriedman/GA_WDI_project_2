@@ -6,9 +6,10 @@ const Shows = require('../models/shows');
 
 // show profile page 
 router.get('/profile', 
-	auth.restrict,  // restrict this route to logged in users
+	auth.restrict,   // restrict this route to logged in users
+	Shows.findAllForUser, 
 	(req, res) => {
-  res.render('shows/profile');
+  res.render('shows/profile', {savedShow: res.locals.savedShowData});
 });
 
 

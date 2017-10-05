@@ -22,12 +22,14 @@
           <input placeholder="Search for your shows..." name="input" type="text"/>
    </form>
 
+	{{#savedShow}}
 	<div id='saved-shows'>
-			
-
+		
+		<img src="{{image}}" alt="">
+		<p></p>
 	
 	</div>
-
+	{{/savedShow}}
 	
 	<!-- div that shows all search results on profile page -->
   {{#show}}

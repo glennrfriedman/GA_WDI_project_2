@@ -76,13 +76,24 @@ Shows.save = (req, res, next) => {
    
     db.one('INSERT INTO show_data (user_id, show_id, show_name, on_air, image, comments) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id', [user_id, show_id, show_name, on_air, image, comments])
         .then(savedShowData => {
-        		console.log('savedShowData: ', savedShowData);
-            res.locals.savedShowData = savedShowData;
+        		// console.log('savedShowData: ', savedShowData);
+          //   res.locals.savedShowData = savedShowData;
             next();
         }).catch(err => {
             console.log(err);
         })
 
 }; //end of Shows.save
+
+Shows.findAllForUser = (req, res, next) => {
+  // Find all messages to display on this user's message page. Fill me in!
+  const userId = req.user.id;
+  db.manyOrNone(
+        'SELECT * FROM show_data WHERE user_id = $1', [userId]
+    ).then(data => {
+        res.locals.savedShowData = data;
+        next();
+    }).catch(err => console.log('ERROR:', err));
+};	
 
 module.exports = Shows;
