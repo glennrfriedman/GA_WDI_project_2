@@ -8,26 +8,40 @@
 
   <script type="text/javascript" src="/js/script.js"></script>
 
-	<title>Tv Time</title>
+	<title>TV Time</title>
 
 </head>
 <body>
 	<h1>This is the profile page</h1>	
 
-	<!-- <input type="text" id="show_search" />
-  <button id="submit">Search</button> -->
-
+		<!-- searchbar from profile page -->
+		<h3>Hit enter to search:</h3>
    <form action="/tvtime/search" method="POST">
           <input placeholder="Search for your shows..." name="input" type="text"/>
    </form>
 
-   {{#show}}
+	<!-- div that shows all search results on profile page -->
+  {{#show}}
 	<div>
-		<img src="" alt="">
-		<p>{{name}}</p>
-		<p>{{status}}</p>
+		<p>Click on the image below to go to the official show page:</p>
+		<a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
+		<p>Name: {{name}}</p>
+		<p>On-Air: {{status}}</p>
+		<p>Air-Time: {{schedule.days}}, {{schedule.time}}</p>
+		<button id="save-show">Save Show</button>
 	</div>
 	{{/show}}
+
+	{{#time}}
+		<p>Next Episode <br>
+			Season: {{season}}, Episode: {{number}} <br>
+			Date: {{airdate}}, Time: {{airtime}}
+		</p>
+	{{/time}}
+  
+ <!--  {{^time}}
+		<p>No new episodes.</p>
+	{{/time}} -->
 
 
 	<!-- logout to index.html (landing page) -->

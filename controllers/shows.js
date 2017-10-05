@@ -17,9 +17,15 @@ router.post('/search',
 	auth.restrict, 
 	// returns all search results in an JSON from model
 	Shows.search, 
+	Shows.time,
   (req, res) => {
   	// console.log('TV DATA: ', res.locals.tvData);
-  res.render('shows/profile', {show: res.locals.tvData});
+  const viewData = {show: res.locals.tvData};
+  // if i have showTime data
+  if(res.locals.showTime !== undefined){
+  	viewData.time = res.locals.showTime.data;
+  }	
+  res.render('shows/profile', viewData);
 });
 
 module.exports = router;
