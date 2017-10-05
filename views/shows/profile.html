@@ -27,17 +27,17 @@
 		<a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
 		<p>Name: {{name}}</p>
 		<p>On-Air: {{status}}</p>
-		<p>Air-Time: {{schedule.days}}, {{schedule.time}}</p>
+		<!-- <p>Air-Time: {{schedule.days}}, {{schedule.time}}</p> -->
+			{{#time}}
+				<p>Next Episode:<br>
+						Season: {{season}}, Episode: {{number}} <br>
+						Date: {{airdate}}, Time: {{airtime}}
+				</p>
+	{{/time}}
 		<button id="save-show">Save Show</button>
 	</div>
 	{{/show}}
 
-	{{#time}}
-		<p>Next Episode <br>
-			Season: {{season}}, Episode: {{number}} <br>
-			Date: {{airdate}}, Time: {{airtime}}
-		</p>
-	{{/time}}
   
  <!--  {{^time}}
 		<p>No new episodes.</p>
