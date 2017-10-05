@@ -9,13 +9,11 @@ CREATE TABLE users (
 
 CREATE TABLE show_data (
   id SERIAL PRIMARY KEY,
+  user_id integer REFERENCES users(id),
   show_id VARCHAR(255),
   show_name VARCHAR(255),
-  network_name VARCHAR(255),
+  on_air VARCHAR(255),
   image VARCHAR(255),
-  show_date VARCHAR(255),
-  show_time VARCHAR(255),
-  show_status VARCHAR(255),
   comments VARCHAR(255)
 );
 

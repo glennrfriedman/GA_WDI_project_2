@@ -18,8 +18,8 @@ router.post('/search',
 	// returns all search results in an JSON from model
 	Shows.search, 
 	Shows.time,
+	Shows.save,
   (req, res) => {
-  	// console.log('TV DATA: ', res.locals.tvData);
   const viewData = {show: res.locals.tvData};
   // if i have showTime data
   if(res.locals.showTime !== undefined){
