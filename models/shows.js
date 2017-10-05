@@ -67,13 +67,14 @@ Shows.save = (req, res, next) => {
    
    console.log('res.locals : ', res.locals)
 
-   const show_id = res.locals.tvData.id,
+   const user_id = req.user.id,
+   			 show_id = res.locals.tvData.id,
          show_name = res.locals.tvData.name,
          on_air = res.locals.tvData.status,
          image = res.locals.tvData.image.medium,
          comments = 'comment';
    
-    db.one('INSERT INTO show_data (show_id, show_name, on_air, image, comments) VALUES ($1, $2, $3, $4, $5) RETURNING id', [show_id, show_name, on_air, image, comments])
+    db.one('INSERT INTO show_data (user_id, show_id, show_name, on_air, image, comments) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id', [user_id, show_id, show_name, on_air, image, comments])
         .then(savedShowData => {
         		console.log('savedShowData: ', savedShowData);
             res.locals.savedShowData = savedShowData;
