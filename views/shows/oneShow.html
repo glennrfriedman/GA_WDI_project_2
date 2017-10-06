@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {{#oneShow}}
+    <title>{{name}}</title>
+    {{/oneShow}}
+</head>
+
+<body>
+    
+    {{#oneShow}}
+    <div>
+        <p>Click on the image below to go to the official show page:</p>
+        <a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
+        <p>Name: {{name}}</p>
+        <p>On-Air: {{status}}</p>
+
+        {{#oneTime}}
+        <p>Next Episode:
+            <br> Season: {{season}}, Episode: {{number}}
+            <br> Date: {{airdate}}, Time: {{airtime}}
+        </p>
+        {{/oneTime}}
+
+    </div>
+    {{/oneShow}}
+
+</body>
+
+</html>

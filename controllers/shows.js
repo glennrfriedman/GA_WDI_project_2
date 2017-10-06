@@ -19,14 +19,29 @@ router.post('/search',
 	// returns all search results in an JSON from model
 	Shows.search, 
 	Shows.time,
-	Shows.save,
+	Shows.save, 
   (req, res) => {
   const viewData = {show: res.locals.tvData};
   // if i have showTime data
   if(res.locals.showTime !== undefined){
   	viewData.time = res.locals.showTime.data;
   }	
-  res.render('shows/profile', viewData);
+  res.render('shows/search', viewData);
+});
+
+// get show by name and 
+router.get('/:id',
+	auth.restrict, 
+  Shows.findById,
+  Shows.timeById,
+  (req, res) => {
+  const viewData = {oneShow: res.locals.oneShowData};
+  // console.log(res.locals.oneShowData);
+  // if i have showTime data
+  if(res.locals.oneShowTime !== undefined){
+  	viewData.oneTime = res.locals.oneShowTime.data;
+  }	
+  res.render('shows/oneShow', viewData);
 });
 
 module.exports = router;

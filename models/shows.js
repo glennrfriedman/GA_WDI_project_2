@@ -41,12 +41,13 @@ Shows.search = (req, res, next) => {
     })
 } //end of Shows.Search
 
+// used to get current show time information for search
 Shows.time = (req, res, next) => {
     // grab link from tvData object with next show information 
+
     if (res.locals.tvData._links.nextepisode === undefined) {
         next();
-    } 
-    else {
+    } else {
         const timeLink = res.locals.tvData._links.nextepisode.href;
         console.log('show time link: ', timeLink);
         axios({
@@ -59,25 +60,25 @@ Shows.time = (req, res, next) => {
         }).catch(err => {
             console.log(`error fetching show data: ${err}`)
         })
-    }
 
+    }
 } //end of Shows.time
 
 Shows.save = (req, res, next) => {
-   
-   console.log('res.locals : ', res.locals)
 
-   const user_id = req.user.id,
-   			 show_id = res.locals.tvData.id,
-         show_name = res.locals.tvData.name,
-         on_air = res.locals.tvData.status,
-         image = res.locals.tvData.image.medium,
-         comments = 'comment';
-   
+    console.log('res.locals : ', res.locals)
+
+    const user_id = req.user.id,
+        show_id = res.locals.tvData.id,
+        show_name = res.locals.tvData.name,
+        on_air = res.locals.tvData.status,
+        image = res.locals.tvData.image.medium,
+        comments = 'comment';
+
     db.one('INSERT INTO show_data (user_id, show_id, show_name, on_air, image, comments) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id', [user_id, show_id, show_name, on_air, image, comments])
         .then(savedShowData => {
-        		// console.log('savedShowData: ', savedShowData);
-          //   res.locals.savedShowData = savedShowData;
+            // console.log('savedShowData: ', savedShowData);
+            //   res.locals.savedShowData = savedShowData;
             next();
         }).catch(err => {
             console.log(err);
@@ -86,14 +87,56 @@ Shows.save = (req, res, next) => {
 }; //end of Shows.save
 
 Shows.findAllForUser = (req, res, next) => {
-  // Find all messages to display on this user's message page. Fill me in!
-  const userId = req.user.id;
-  db.manyOrNone(
+    // Find all messages to display on this user's message page. Fill me in!
+    const userId = req.user.id;
+    db.manyOrNone(
         'SELECT * FROM show_data WHERE user_id = $1', [userId]
     ).then(data => {
         res.locals.savedShowData = data;
         next();
     }).catch(err => console.log('ERROR:', err));
-};	
+};
+
+Shows.findById = (req, res, next) => {
+
+    const id = req.params.id;
+    // console.log('show id is: ' + showId);
+
+    // axios call to get information based on showId
+    axios({
+        url: `http://api.tvmaze.com/shows/${id}`,
+        method: 'GET'
+    }).then(oneShowData => {
+        res.locals.oneShowData = oneShowData.data;
+        console.log('--------------------------');
+        console.log('oneShowData: ', res.locals.oneShowData);
+        next();
+    }).catch(err => {
+        console.log(`error fetching show data: ${err}`)
+    })
+
+}
+
+// used to get current show time information for oneShow view
+Shows.timeById = (req, res, next) => {
+
+    if (res.locals.oneShowData._links.nextepisode === undefined) {
+        next();
+    } 
+    else {
+        const timeLink = res.locals.oneShowData._links.nextepisode.href;
+        console.log('show time link: ', timeLink);
+        axios({
+            url: `${timeLink}`,
+            method: 'GET'
+        }).then(showTime => {
+            res.locals.oneShowTime = showTime;
+            console.log('showtime: ', showTime);
+            next();
+        }).catch(err => {
+            console.log(`error fetching show data: ${err}`)
+        })
+    }
+}
 
 module.exports = Shows;

@@ -22,36 +22,19 @@
           <input placeholder="Search for your shows..." name="input" type="text"/>
    </form>
 
+	<p>(Click sohw image for more detal)</p>   
+
 	{{#savedShow}}
+	
 	<div id='saved-shows'>
 		
-		<img src="{{image}}" alt="">
-		<p></p>
-	
-	</div>
-	{{/savedShow}}
-	
-	<!-- div that shows all search results on profile page -->
-  {{#show}}
-	<div>
-		<p>Click on the image below to go to the official show page:</p>
-		<a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
-		<p>Name: {{name}}</p>
-		<p>On-Air: {{status}}</p>
-		<!-- <p>Air-Time: {{schedule.days}}, {{schedule.time}}</p> -->
-			{{#time}}
-				<p>Next Episode:<br>
-						Season: {{season}}, Episode: {{number}} <br>
-						Date: {{airdate}}, Time: {{airtime}}
-				</p>
-	{{/time}}
-	
-	<input type="submit" id="save-show" value="Save Show">	
-	
-	</div>
-	{{/show}}
 
-  
+		<a href="/tvtime/{{show_id}}"> <img src="{{image}}" alt=""> </a>
+	
+	</div>
+
+	{{/savedShow}}
+	  
  <!--  {{^time}}
 		<p>No new episodes.</p>
 	{{/time}} -->

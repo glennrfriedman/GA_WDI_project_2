@@ -16,11 +16,29 @@
 	
 	<h1>This is the search page, see results below:</h1>
 
-	{{#show}}
+	<h3>Hit enter to search:</h3>
+   <form action="/tvtime/search" method="POST">
+          <input placeholder="Search for your shows..." name="input" type="text"/>
+   </form>
+
+	<!-- div that shows all search results on profile page -->
+  {{#show}}
 	<div>
-		<img src="" alt="">
-		<p>{{name}}</p>
-		<p>{{status}}</p>
+		<p>Click on the image below to go to the official show page:</p>
+		<a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
+		<p>Name: {{name}}</p>
+		<p>On-Air: {{status}}</p>
+		<!-- <p>Air-Time: {{schedule.days}}, {{schedule.time}}</p> -->
+			{{#time}}
+				<p>Next Episode:<br>
+						Season: {{season}}, Episode: {{number}} <br>
+						Date: {{airdate}}, Time: {{airtime}}
+				</p>
+	{{/time}}
+	
+	<!-- saves show data to database on click -->
+	<a href="/tvtime/profile"> <input type="submit" id="save-show" value="Save Show"> </a>
+	
 	</div>
 	{{/show}}
 
