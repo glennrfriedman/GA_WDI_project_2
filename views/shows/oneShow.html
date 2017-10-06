@@ -12,10 +12,12 @@
     
     {{#oneShow}}
     <div>
+        <h1>{{name}}:</h1><br>
         <p>Click on the image below to go to the official show page:</p>
         <a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
-        <p>Name: {{name}}</p>
+        <p>Network: {{network.name}}</p>
         <p>On-Air: {{status}}</p>
+        <p>Description: {{{summary}}}</p>
 
         {{#oneTime}}
         <p>Next Episode:
@@ -26,6 +28,8 @@
 
     </div>
     {{/oneShow}}
+
+    <a href="/tvtime/profile"> Back to profile </a>
 
 </body>
 
