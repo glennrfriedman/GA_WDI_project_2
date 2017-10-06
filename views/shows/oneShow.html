@@ -2,35 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    {{#oneShow}}
+    <meta charset="UTF-8"> {{#oneShow}}
     <title>{{name}}</title>
     {{/oneShow}}
 </head>
 
 <body>
-    
     {{#oneShow}}
     <div>
-        <h1>{{name}}:</h1><br>
+        <h1>{{name}}:</h1>
+        <br>
         <p>Click on the image below to go to the official show page:</p>
         <a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
         <p>Network: {{network.name}}</p>
         <p>On-Air: {{status}}</p>
         <p>Description: {{{summary}}}</p>
-
         {{#oneTime}}
         <p>Next Episode:
             <br> Season: {{season}}, Episode: {{number}}
             <br> Date: {{airdate}}, Time: {{airtime}}
         </p>
         {{/oneTime}}
-
     </div>
     {{/oneShow}}
-
     <a href="/tvtime/profile"> Back to profile </a>
-
 </body>
 
 </html>

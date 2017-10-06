@@ -1,47 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
-	<meta charset="UTF-8">
-	
-	<script type="text/javascript" src="/js/jquery.js"></script>
-
-  <script type="text/javascript" src="/js/script.js"></script>
-
-  <link rel="stylesheet" href="/css/style.css">
-
-	<title>TV Time</title>
-
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>TV Time</title>
 </head>
+
 <body>
-	<h1>This is the profile page</h1>	
+    <h1>This is the profile page</h1>
+    <!-- searchbar from profile page -->
+    <h3>Hit enter to search:</h3>
+    <form action="/tvtime/search" method="POST">
+        <input placeholder="Search for your shows..." name="input" type="text" />
+    </form>
 
-		<!-- searchbar from profile page -->
-		<h3>Hit enter to search:</h3>
-   <form action="/tvtime/search" method="POST">
-          <input placeholder="Search for your shows..." name="input" type="text"/>
-   </form>
+    <p>(Click show image for more detal)</p>
 
-	<p>(Click show image for more detal)</p>   
+    {{#savedShow}}
+    <div class='saved-shows-container' data-id="{{show_id}}">
+				<!-- show image + link to oneShow page -->    		
+        <a href="/tvtime/{{show_id}}"> <img src="{{image}}" alt=""> </a>
+				<!-- comments -->
+        <p id="comments" data-id="{{show_id}}">{{comments}}</p>
+        <!-- delete show -->
+        <button class="delete-show" data-id="{{id}}">Delete</button>
 
-	{{#savedShow}}
-	
-	<div id='saved-shows'>
-		
+    </div>
+    {{/savedShow}}
 
-		<a href="/tvtime/{{show_id}}"> <img src="{{image}}" alt=""> </a>
-	
-	</div>
-
-	{{/savedShow}}
-	  
- <!--  {{^time}}
-		<p>No new episodes.</p>
-	{{/time}} -->
-
-
-	<!-- logout to index.html (landing page) -->
-	<a href="/" class="logout">Logout</a> 
-	
+    <!-- logout to index.html (landing page) -->
+    <a href="/" class="logout">Logout</a>
 </body>
+
 </html>

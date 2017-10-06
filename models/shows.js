@@ -78,7 +78,7 @@ Shows.save = (req, res, next) => {
     db.one('INSERT INTO show_data (user_id, show_id, show_name, on_air, image, comments) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id', [user_id, show_id, show_name, on_air, image, comments])
         .then(savedShowData => {
             // console.log('savedShowData: ', savedShowData);
-            //   res.locals.savedShowData = savedShowData;
+            // res.locals.savedShowData = savedShowData;
             next();
         }).catch(err => {
             console.log(err);
@@ -122,8 +122,7 @@ Shows.timeById = (req, res, next) => {
 
     if (res.locals.oneShowData._links.nextepisode === undefined) {
         next();
-    } 
-    else {
+    } else {
         const timeLink = res.locals.oneShowData._links.nextepisode.href;
         console.log('show time link: ', timeLink);
         axios({
@@ -138,5 +137,21 @@ Shows.timeById = (req, res, next) => {
         })
     }
 }
+
+Shows.destroy = (req, res, next) => {
+
+    const id = req.params.id;
+
+    db.none(
+        'DELETE FROM show_data WHERE id = $1', [id]
+    ).then(() => {
+        // res.locals.destroyedShowData = "maybe something could go here";
+        // console.log(res.locals.destroyedShowData);
+        next();
+    }).catch(err => {
+        console.log(`ERROR AT DESTROY MODEL: ${err}`);
+    })
+
+};
 
 module.exports = Shows;

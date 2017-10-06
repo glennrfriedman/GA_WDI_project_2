@@ -1,47 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	
-	<script type="text/javascript" src="/js/jquery.js"></script>
-
-  <script type="text/javascript" src="/js/script.js"></script>
-
-  <link rel="stylesheet" href="/css/style.css">
-
-	<title>Show Search</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Show Search</title>
 </head>
 
 <body>
-	
-	<h1>This is the search page, see results below:</h1>
-
-	<h3>Hit enter to search:</h3>
-   <form action="/tvtime/search" method="POST">
-          <input placeholder="Search for your shows..." name="input" type="text"/>
-   </form>
-
-	<!-- div that shows all search results on profile page -->
-  {{#show}}
-	<div>
-		<p>Click on the image below to go to the official show page:</p>
-		<a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
-		<p>Name: {{name}}</p>
-		<p>On-Air: {{status}}</p>
-		<!-- <p>Air-Time: {{schedule.days}}, {{schedule.time}}</p> -->
-			{{#time}}
-				<p>Next Episode:<br>
-						Season: {{season}}, Episode: {{number}} <br>
-						Date: {{airdate}}, Time: {{airtime}}
-				</p>
-	{{/time}}
-	
-	<!-- saves show data to database on click -->
-	<a href="/tvtime/profile"> <input type="submit" id="save-show" value="Save Show"> </a>
-	
-	</div>
-	{{/show}}
-
+    <h1>This is the search page, see results below:</h1>
+    <h3>Hit enter to search:</h3>
+    <form action="/tvtime/search" method="POST">
+        <input placeholder="Search for your shows..." name="input" type="text" />
+    </form>
+    <!-- div that shows all search results on profile page -->
+    {{#show}}
+    <div>
+        <p>Click on the image below to go to the official show page:</p>
+        <a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
+        <p>Name: {{name}}</p>
+        <p>On-Air: {{status}}</p>
+        <!-- <p>Air-Time: {{schedule.days}}, {{schedule.time}}</p> -->
+        {{#time}}
+        <p>Next Episode:
+            <br> Season: {{season}}, Episode: {{number}}
+            <br> Date: {{airdate}}, Time: {{airtime}}
+        </p>
+        {{/time}}
+        <!-- saves show data to database on click -->
+        <a href="/tvtime/profile"> 
+        	<input type="submit" id="save-show" value="Save Show"> 
+        </a>
+    </div>
+    {{/show}}
 </body>
 
 </html>
