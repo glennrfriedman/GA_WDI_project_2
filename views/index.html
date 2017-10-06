@@ -4,20 +4,23 @@
 	<meta charset="UTF-8">
 	<title>TV Time</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
-	<h1>Welcome to TV Time!</h1>
-
-	<form action="/users/login" method="post">
-      <input placeholder="username" name="user[email]" type="text"/>
-
-      <input placeholder="password" name="user[password]" type="password"/>
-      
+	
+  <div class="logo"> 
+    <img id="logo" src="/assets/logo.png">
+  </div>
+  
+  <div class="login">
+	<div id="login-form">
+  <form action="/users/login" method="post">
+      <input placeholder="Username" name="user[email]" type="text" class="inputs"><br>
+      <input placeholder="Password" name="user[password]" type="password" class="inputs"><br>
       <input type="submit" value="Login">
-  </form>
-
-  <div class="text-center">
-        <a href="/users/new"><small>Sign Up</small></a>
+  </form><br>
+<a href="/users/new"><small>Sign Up</small></a>
+</div>
    </div>
 	
 </body>
