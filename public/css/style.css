@@ -1,46 +1,87 @@
 body {
+	border: 0;
 	text-align: center;
-	background: black;
+	background: #4682B4;
 	color: white;
 	font-family: 'Open Sans', sans-serif;
 }
 
-a {
-	text-decoration: none;
+#main_page {
+	overflow: hidden;
+}
+
+#title {
+	font-size: 88px;
+}
+
+#tagline {
+	font-size: 36px;
+}
+
+.header {
+	font-family: 'Paytone One', sans-serif;
+	/*color: #FF6500;*/
 	color: white;
 }
 
-a:hover {
-	color: gray;
-}
-
-#logo {
-	height: 25vh;
+#submit_login, #sign_up {
+	text-decoration: none;
+	font-size: 28px;
+	width: 40%; background-color: #FF6500;
+	border-radius: 10%;
+/*	-webkit-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
+	-moz-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
+	box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);*/
 }
 
 .login {
-	background: url('../assets/BG.png') no-repeat, fixed;
 	background-size: cover;
 	height: 75vh;
 	width: 60vw;
 	margin: 0 auto;
+	text-align: center;
 }
 
 #login-form {
-	padding-top: 20%;
+	padding: 5%;
 }
 
 .inputs {
 	font-family: 'Open Sans', sans-serif;
-	font-size: .75em;
+	font-size: 24px;
 	margin: 0 auto;
 	padding: 10px;
-	width: 15%;
+	width: 40%;
 	display: block;
 	border: none;
-	border-radius: 5%;
+	border-radius: 4%;
+	-webkit-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
+	-moz-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
+	box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
 }
 
 input[type="submit"] {
 	font-family: 'Open Sans', sans-serif;
+}
+
+.saved-shows-container {
+	display: inline-block;
+	padding: 2%;
+	margin: 8px;
+	border-style: double;
+	border: 2px solid white;
+	background: #778899;
+	-webkit-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
+	-moz-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
+	box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
+/*	border: 2px solid #FF6500;
+	margin: 2%;*/
+	/*border-radius: 10%;*/
+}
+
+.searchbar {
+	margin: 2%;
+	padding: 1%;
+	width: 70%;
+	font-size: 28px;
 }

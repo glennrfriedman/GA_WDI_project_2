@@ -10,7 +10,7 @@ router.get('/profile',
     Shows.findAllForUser,
     (req, res) => {
         res.render('shows/profile', { savedShow: res.locals.savedShowData });
-    });
+});
 
 
 // show search

@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>TV Time</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>TV Time</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
 </head>
-<body>
-	
-  <div class="logo"> 
-    <img id="logo" src="/assets/logo.png">
-  </div>
-  
-  <div class="login">
-	<div id="login-form">
-  <form action="/users/login" method="post">
-      <input placeholder="Username" name="user[email]" type="text" class="inputs"><br>
-      <input placeholder="Password" name="user[password]" type="password" class="inputs"><br>
-      <input type="submit" value="Login">
-  </form><br>
-<a href="/users/new"><small>Sign Up</small></a>
-</div>
-   </div>
-	
+
+<body id="main_page">
+    <div class="header">
+        <!-- <img id="logo" src="/assets/antena.png"> -->
+        <div id='title'>tv time</div>
+        <div id='tagline'>never miss a show</div>
+    </div>
+    <div class="login">
+        <div id="login-form">
+            <form action="/users/login" method="post">
+                <input placeholder="Username" name="user[email]" type="text" class="inputs">
+                <br>
+                <input placeholder="Password" name="user[password]" type="password" class="inputs">
+                <br>
+                <input id="submit_login" type="submit" value="enter">
+            </form>
+            <br>
+            <form action="/users/new" method="get">
+              <input id="submit_login" type="submit" value="sign up">
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>

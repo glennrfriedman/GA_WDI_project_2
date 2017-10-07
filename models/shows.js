@@ -92,6 +92,7 @@ Shows.findAllForUser = (req, res, next) => {
     db.manyOrNone(
         'SELECT * FROM show_data WHERE user_id = $1', [userId]
     ).then(data => {
+        // console.log('findAllForUser: ', data);
         res.locals.savedShowData = data;
         next();
     }).catch(err => console.log('ERROR:', err));

@@ -3,19 +3,25 @@
 
 <head>
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Welcome new user, plesae sign up below: </h1>
+    <div class="header">
+        <!-- <img id="logo" src="/assets/antena.png"> -->
+        <div id='title'><b>tv time</b></div>
+        <div id='tagline'>never miss a show</div>
+        <h4>complete the form below to sign up</h4>
+        <h4>after sign up you will be taken to your new profile page</h4>
+    </div>
     <div>
         <form action="/users" method="POST">
-            <label for="email">Email</label>
-            <input id="email" type="text" name="user[email]" placeholder="email">
+            <input id="email" type="text" name="user[email]" placeholder="email" class='inputs'>
             <br>
-            <label for="password">Password</label>
-            <input id="password" type="password" name="user[password]" placeholder="password">
+            <input id="password" type="password" name="user[password]" placeholder="password" class='inputs'>
             <br>
-            <input type="submit" value="Sign Up">
+            <input id="submit_login" type="submit" value="Sign Up">
         </form>
     </div>
 </body>

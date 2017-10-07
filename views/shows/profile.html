@@ -6,24 +6,31 @@
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
     <title>TV Time</title>
 </head>
 
 <body>
-    <h1>This is the profile page</h1>
+     <div class="header">
+        <!-- <img id="logo" src="/assets/antena.png"> -->
+        <div id='title'>tv time</div>
+        <div id='tagline'>never miss a show</div>
+    </div>
     <!-- searchbar from profile page -->
-    <h3>Hit enter to search:</h3>
     <form action="/tvtime/search" method="POST">
-        <input placeholder="Search for your shows..." name="input" type="text" />
+        <input placeholder="Search for your shows..." name="input" type="text" class="searchbar"/>
     </form>
 
-    <p>(Click show image for more detal)</p>
+    <p>(Click show image for more detail)</p>
 
     {{#savedShow}}
     <div class='saved-shows-container' data-id="{{show_id}}">
-				<!-- show image + link to oneShow page -->    		
+		<!-- show image + link to oneShow page -->    		
         <a href="/tvtime/{{show_id}}"> <img src="{{image}}" alt=""> </a>
-				<!-- comments -->
+        <!-- date/time -->
+        <p>On air: {{on_air}}</p>
+		<!-- comments -->
         <p id="comments" data-id="{{show_id}}">{{comments}}</p>
         <!-- delete show -->
         <button class="delete-show" data-id="{{id}}">Delete</button>
