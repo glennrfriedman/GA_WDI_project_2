@@ -27,6 +27,7 @@
     <div class='container'>
     {{#savedShow}}
     <div class='saved-shows-container' data-id="{{show_id}}">
+        <div class="delete-show" data-id="{{id}}"></div>
 		<!-- show image + link to oneShow page -->    		
         <a href="/tvtime/{{show_id}}"> <img src="{{image}}" alt=""> </a>
         <!-- running/ended -->
@@ -36,7 +37,6 @@
 		<!-- comments -->
         <p id="comments" data-id="{{show_id}}">{{comments}}</p>
         <!-- delete show -->
-        <button class="delete-show" data-id="{{id}}">Delete</button>
     </div>
     {{/savedShow}}
     </div>
