@@ -1,6 +1,7 @@
 const axios = require('axios');
 const db = require('../db/config');
 const convertTime = require('convert-time');
+const dateformatConverter = require('dateformat-converter');
 require('dotenv').config();
 
 // this is the TV Maze api url for a multiple show search 
@@ -132,7 +133,11 @@ Shows.timeById = (req, res, next) => {
             url: `${timeLink}`,
             method: 'GET'
         }).then(showTime => {
-            res.locals.oneShowTime = showTime;
+            const time = showTime.data.airdate;
+            console.log('time: ' + time);
+            res.locals.showDate = time;
+            res.locals.showHour = convertTime(showTime.data.airtime);
+            // res.locals.oneShowTime = showTime;
             console.log('showtime: ', showTime);
             next();
         }).catch(err => {

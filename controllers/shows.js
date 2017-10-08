@@ -39,7 +39,8 @@ router.get('/:id',
         // console.log(res.locals.oneShowData);
         // if i have showTime data
         if (res.locals.oneShowTime !== undefined) {
-            viewData.oneTime = res.locals.oneShowTime.data;
+            viewData.showDate = res.locals.showDate;
+            viewData.showHour = res.locals.showHour;
         }
         res.render('shows/oneShow', viewData);
     });

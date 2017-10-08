@@ -21,11 +21,9 @@
         <p>On-Air: {{status}}</p>
         <p>Description: {{{summary}}}</p>
         {{#oneTime}}
-        <p>Next Episode:
-            <br> Season: {{season}}, Episode: {{number}}
-            <br> Date: {{airdate}}, Time: {{airtime}}
-        </p>
+        <p>Next Episode: Season: {{season}}, Episode: {{number}}</p>
         {{/oneTime}}
+        <p>Air Date: {{showDate}}, {{showHour}} </p>
     </div>
     {{/oneShow}}
     <a href="/tvtime/profile"> Back to profile </a>
