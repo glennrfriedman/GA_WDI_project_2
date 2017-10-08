@@ -24,7 +24,9 @@ router.post('/search',
         const viewData = { show: res.locals.tvData };
         // if i have showTime data
         if (res.locals.showTime !== undefined) {
-            viewData.time = res.locals.showTime.data;
+            viewData.showDate = res.locals.showDate;
+            viewData.showHour = res.locals.showHour;
+            viewData.episode = res.locals.showTime;
         }
         res.render('shows/search', viewData);
 });

@@ -56,7 +56,11 @@ Shows.time = (req, res, next) => {
             url: `${timeLink}`,
             method: 'GET'
         }).then(showTime => {
-            res.locals.showTime = showTime;
+            const time = showTime.data.airdate;
+            console.log('time: ' + time);
+            res.locals.showDate = time;
+            res.locals.showHour = convertTime(showTime.data.airtime);
+            res.locals.showTime = showTime.data;
             console.log('showtime: ', showTime);
             next();
         }).catch(err => {
