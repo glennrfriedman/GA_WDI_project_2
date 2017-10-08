@@ -137,12 +137,12 @@ Shows.timeById = (req, res, next) => {
             url: `${timeLink}`,
             method: 'GET'
         }).then(showTime => {
+            res.locals.oneShowTime = showTime;
+            console.log('showtime: ', showTime);
             const time = showTime.data.airdate;
             console.log('time: ' + time);
             res.locals.showDate = time;
             res.locals.showHour = convertTime(showTime.data.airtime);
-            // res.locals.oneShowTime = showTime;
-            console.log('showtime: ', showTime);
             next();
         }).catch(err => {
             console.log(`error fetching show data: ${err}`)

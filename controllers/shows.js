@@ -43,6 +43,7 @@ router.get('/:id',
         if (res.locals.oneShowTime !== undefined) {
             viewData.showDate = res.locals.showDate;
             viewData.showHour = res.locals.showHour;
+            viewData.oneTime = res.locals.oneShowTime;
         }
         res.render('shows/oneShow', viewData);
     });

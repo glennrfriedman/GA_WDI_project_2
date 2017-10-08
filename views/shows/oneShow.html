@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8"> {{#oneShow}}
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Paytone+One|Raleway" rel="stylesheet">
@@ -11,22 +12,30 @@
 </head>
 
 <body>
+    <a id="profile_link" href="/tvtime/profile"> Profile </a> <br>
+     <div class="header"> <br>
+        <!-- <img id="logo" src="/assets/antena.png"> -->
+        <div id='title'>tv time</div>
+        <div id='tagline'>never miss a show</div>
+    </div>
     {{#oneShow}}
-    <div>
+    <div class='saved-shows-container'>
         <h1>{{name}}:</h1>
-        <br>
-        <p>Click on the image below to go to the official show page:</p>
+        <ul>
+        <li>Click image for official show site:</li><br>
         <a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
-        <p>Network: {{network.name}}</p>
-        <p>On-Air: {{status}}</p>
-        <p>Description: {{{summary}}}</p>
+        <li>Network: {{network.name}}</li>
+        <li>On-Air: {{status}}</li>
+        <li>Premiered: {{premiered}}</li>
+        <li>Rating: {{rating.average}}</li>
+        <li>{{{summary}}}</li>
         {{#oneTime}}
-        <p>Next Episode: Season: {{season}}, Episode: {{number}}</p>
+        <li>Next Episode: Season: {{season}}, Episode: {{number}}</li>
         {{/oneTime}}
-        <p>Air Date: {{showDate}}, {{showHour}} </p>
+        <li>Air Date: {{showDate}}, {{showHour}} </li> 
+        </ul> 
     </div>
     {{/oneShow}}
-    <a href="/tvtime/profile"> Back to profile </a>
 </body>
 
 </html>
