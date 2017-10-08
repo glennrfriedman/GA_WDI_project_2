@@ -1,5 +1,6 @@
 const axios = require('axios');
 const db = require('../db/config');
+const convertTime = require('convert-time');
 require('dotenv').config();
 
 // this is the TV Maze api url for a multiple show search 
@@ -73,9 +74,11 @@ Shows.save = (req, res, next) => {
         show_name = res.locals.tvData.name,
         on_air = res.locals.tvData.status,
         image = res.locals.tvData.image.medium,
-        comments = 'comment';
+        show_time = `${convertTime(res.locals.tvData.schedule.time)} EST`,
+        show_date = `${res.locals.tvData.schedule.days[0]}s`,
+        comments = '';
 
-    db.one('INSERT INTO show_data (user_id, show_id, show_name, on_air, image, comments) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id', [user_id, show_id, show_name, on_air, image, comments])
+    db.one('INSERT INTO show_data (user_id, show_id, show_name, on_air, image, show_time, show_date, comments) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id', [user_id, show_id, show_name, on_air, image, show_time, show_date, comments])
         .then(savedShowData => {
             // console.log('savedShowData: ', savedShowData);
             // res.locals.savedShowData = savedShowData;
@@ -83,7 +86,6 @@ Shows.save = (req, res, next) => {
         }).catch(err => {
             console.log(err);
         })
-
 }; //end of Shows.save
 
 Shows.findAllForUser = (req, res, next) => {

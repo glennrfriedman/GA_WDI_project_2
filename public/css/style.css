@@ -22,16 +22,23 @@ body {
 	font-family: 'Paytone One', sans-serif;
 	/*color: #FF6500;*/
 	color: white;
+	margin-bottom: 4%;
 }
 
 #submit_login, #sign_up {
+	font-family: 'Raleway', sans-serif;
 	text-decoration: none;
 	font-size: 28px;
 	width: 40%; background-color: #FF6500;
-	border-radius: 10%;
+	border: none;
+	/*border-radius: 10%;*/
 /*	-webkit-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
 	-moz-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
 	box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);*/
+}
+
+#submit_login:hover, #sign_up:hover {
+	padding: 10px;
 }
 
 .login {
@@ -47,7 +54,7 @@ body {
 }
 
 .inputs {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	font-size: 24px;
 	margin: 0 auto;
 	padding: 10px;
@@ -61,15 +68,26 @@ body {
 }
 
 input[type="submit"] {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Raleway', sans-serif;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+	overflow: scroll;
+	/*cant assign a width without orientation changing to left*/
+	/*width: 70%;*/
 }
 
 .saved-shows-container {
+	font-family: 'Raleway', sans-serif;
 	display: inline-block;
 	padding: 2%;
 	margin: 8px;
-	border-style: double;
-	border: 2px solid white;
+	border: 5px double white;
 	background: #778899;
 	-webkit-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
 	-moz-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
@@ -84,4 +102,13 @@ input[type="submit"] {
 	padding: 1%;
 	width: 70%;
 	font-size: 28px;
+	border: none;
+}
+
+#logout {
+	float: right;
+	margin-right: 4%;
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
 }

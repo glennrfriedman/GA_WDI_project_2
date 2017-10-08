@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One|Raleway" rel="stylesheet">
     <title>TV Time</title>
 </head>
 
-<body>
+<body id="profile">
+
      <div class="header">
         <!-- <img id="logo" src="/assets/antena.png"> -->
         <div id='title'>tv time</div>
@@ -22,24 +24,26 @@
         <input placeholder="Search for your shows..." name="input" type="text" class="searchbar"/>
     </form>
 
-    <p>(Click show image for more detail)</p>
-
+    <div class='container'>
     {{#savedShow}}
     <div class='saved-shows-container' data-id="{{show_id}}">
 		<!-- show image + link to oneShow page -->    		
         <a href="/tvtime/{{show_id}}"> <img src="{{image}}" alt=""> </a>
-        <!-- date/time -->
+        <!-- running/ended -->
         <p>On air: {{on_air}}</p>
+        <!-- date/time -->
+        <p>{{show_date}}, {{show_time}}</p>
 		<!-- comments -->
         <p id="comments" data-id="{{show_id}}">{{comments}}</p>
         <!-- delete show -->
         <button class="delete-show" data-id="{{id}}">Delete</button>
-
     </div>
     {{/savedShow}}
+    </div>
 
     <!-- logout to index.html (landing page) -->
-    <a href="/" class="logout">Logout</a>
+    <a href="/" id="logout" class="logout">Logout</a>
+
 </body>
 
 </html>

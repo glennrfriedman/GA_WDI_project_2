@@ -27,7 +27,7 @@ router.post('/search',
             viewData.time = res.locals.showTime.data;
         }
         res.render('shows/search', viewData);
-    });
+});
 
 // get show by name and 
 router.get('/:id',
