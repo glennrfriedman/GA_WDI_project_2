@@ -138,7 +138,7 @@ Shows.timeById = (req, res, next) => {
             url: `${timeLink}`,
             method: 'GET'
         }).then(showTime => {
-            res.locals.oneShowTime = showTime;
+            res.locals.oneShowTime = showTime.data;
             console.log('showtime: ', showTime);
             const time = showTime.data.airdate;
             console.log('time: ' + time);

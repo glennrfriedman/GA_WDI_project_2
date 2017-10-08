@@ -6,6 +6,7 @@ $(document).ready(() => {
     // console log up an running 
     console.log('jQuery connected');
 
+    // delete show ajax call
     const deleteShow = (id) => {
         // ajax call to delete a color
         $.ajax({
@@ -23,6 +24,7 @@ $(document).ready(() => {
         })
     }
 
+    // run delete show ajax on click
     $('.delete-show').click((e) => {
         // get the show of the color being deleted
         const id = $(e.target).attr('data-id');
