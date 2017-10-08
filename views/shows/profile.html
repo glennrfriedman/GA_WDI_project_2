@@ -27,16 +27,19 @@
     <div class='container'>
     {{#savedShow}}
     <div class='saved-shows-container' data-id="{{show_id}}">
+        <!-- delete show -->
         <div class="delete-show" data-id="{{id}}"></div>
 		<!-- show image + link to oneShow page -->    		
         <a href="/tvtime/{{show_id}}"> <img src="{{image}}" alt=""> </a>
+        <ul>
         <!-- running/ended -->
-        <p>On air: {{on_air}}</p>
+        <li>On air: {{on_air}}</li>
+        <li>{{network}}</li>
         <!-- date/time -->
-        <p>{{show_date}}, {{show_time}}</p>
+        <li>{{show_date}}, {{show_time}}</li>
 		<!-- comments -->
-        <p id="comments" data-id="{{show_id}}">{{comments}}</p>
-        <!-- delete show -->
+        <li id="comments" data-id="{{show_id}}">{{comments}}</li>
+        </ul>
     </div>
     {{/savedShow}}
     </div>

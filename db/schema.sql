@@ -16,7 +16,8 @@ CREATE TABLE show_data (
   image VARCHAR(255),
   comments VARCHAR(255),
   show_date VARCHAR(255),
-  show_time VARCHAR(255)
+  show_time VARCHAR(255),
+  network VARCHAR(255)
 );
 
 -- may need to come back and update show_date/show_time 

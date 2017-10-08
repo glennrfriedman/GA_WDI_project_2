@@ -81,9 +81,10 @@ Shows.save = (req, res, next) => {
         image = res.locals.tvData.image.medium,
         show_time = `${convertTime(res.locals.tvData.schedule.time)} EST`,
         show_date = `${res.locals.tvData.schedule.days[0]}s`,
+        network = res.locals.tvData.network.name,
         comments = '';
 
-    db.one('INSERT INTO show_data (user_id, show_id, show_name, on_air, image, show_time, show_date, comments) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id', [user_id, show_id, show_name, on_air, image, show_time, show_date, comments])
+    db.one('INSERT INTO show_data (user_id, show_id, show_name, on_air, image, show_time, show_date, network, comments) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id', [user_id, show_id, show_name, on_air, image, show_time, show_date, network, comments])
         .then(savedShowData => {
             // console.log('savedShowData: ', savedShowData);
             // res.locals.savedShowData = savedShowData;
