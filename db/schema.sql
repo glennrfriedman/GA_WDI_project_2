@@ -20,4 +20,3 @@ CREATE TABLE show_data (
   network VARCHAR(255)
 );
 
--- may need to come back and update show_date/show_time 

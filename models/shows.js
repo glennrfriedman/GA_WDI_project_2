@@ -72,7 +72,7 @@ Shows.time = (req, res, next) => {
 
 Shows.save = (req, res, next) => {
 
-    console.log('res.locals : ', res.locals)
+    // console.log('res.locals : ', res.locals);
 
     const user_id = req.user.id,
         show_id = res.locals.tvData.id,
@@ -87,7 +87,7 @@ Shows.save = (req, res, next) => {
     db.one('INSERT INTO show_data (user_id, show_id, show_name, on_air, image, show_time, show_date, network, comments) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id', [user_id, show_id, show_name, on_air, image, show_time, show_date, network, comments])
         .then(savedShowData => {
             // console.log('savedShowData: ', savedShowData);
-            // res.locals.savedShowData = savedShowData;
+            res.locals.savedShowData = savedShowData;
             next();
         }).catch(err => {
             console.log(err);
@@ -104,13 +104,12 @@ Shows.findAllForUser = (req, res, next) => {
         res.locals.savedShowData = data;
         next();
     }).catch(err => console.log('ERROR:', err));
-};
+} // end of findAllForUser
 
 Shows.findById = (req, res, next) => {
 
     const id = req.params.id;
     // console.log('show id is: ' + showId);
-
     // axios call to get information based on showId
     axios({
         url: `http://api.tvmaze.com/shows/${id}`,
@@ -124,7 +123,7 @@ Shows.findById = (req, res, next) => {
         console.log(`error fetching show data: ${err}`)
     })
 
-}
+} // end of findById
 
 // used to get current show time information for oneShow view
 Shows.timeById = (req, res, next) => {
@@ -149,8 +148,21 @@ Shows.timeById = (req, res, next) => {
             console.log(`error fetching show data: ${err}`)
         })
     }
-}
+} // end of timeById
 
+// update show 
+Shows.update = (req, res, next) => {
+    const id = req.body.id,
+        comments = req.body.comments;
+    db.one(
+        'UPDATE show_data SET comments = $1 WHERE id = $2 returning id', [comments, id]
+    ).then((editedShowData) => {
+        res.locals.editedShowData = editedShowData;
+        next();
+    });
+} // end of update
+
+// delete show
 Shows.destroy = (req, res, next) => {
 
     const id = req.params.id;
@@ -165,6 +177,6 @@ Shows.destroy = (req, res, next) => {
         console.log(`ERROR AT DESTROY MODEL: ${err}`);
     })
 
-};
+} // end of destroy
 
 module.exports = Shows;

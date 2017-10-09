@@ -33,7 +33,10 @@
         <li>Next Episode: Season: {{season}}, Episode: {{number}}</li>
         {{/oneTime}}
         <li>Air Date: {{showDate}}, {{showHour}} </li>  <br> <br>
-        <li> Comments: <br> <textarea name='comment' id='comment'>{{comments}}</textarea></li>
+        <form class="edit-show-form">
+            <li> Comments: <br> <textarea name='comment' class='show-comment-input'>{{comments}}</textarea></li>
+            <button type="submit" data-id="{{id}}">save comment</button>
+        </form>
         </ul> 
     </div>
     {{/oneShow}}

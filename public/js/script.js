@@ -35,3 +35,46 @@ $(document).ready(() => {
 
 
 }); // ends document.ready
+
+            // const editShow = (id) => {
+            //     // grab values from form
+            //     const comment = $('.show-comment-input').val(),
+
+            //         // create new object to send form data in
+            //         const editedShowData = { comment: comment };
+            //     // send ajax request to edit show
+            //     $.ajax({
+            //         method: 'PUT',
+            //         url: `/tvtime/${id}`,
+            //         data: editedShowData,
+            //         success: response => {
+            //             console.log(response);
+            //             window.location.replace('/tvtime/profile');
+            //         },
+            //         error: msg => {
+            //             console.log(msg);
+            //         }
+            //     }); // ends ajax method
+            // }; // ends submit function for edited show
+
+            // $('.edit-show-form').on('submit', e => {
+            //         e.preventDefault(); // stops default behavior of page refresh
+            //         const id = $(e.target).attr('data-id');
+            //         const comment = $('.show-comment-input').val(),
+
+            //             // create new object to send form data in
+            //             const editedShowData = { comment: comment };
+            //         // send ajax request to edit show
+            //         $.ajax({
+            //             method: 'PUT',
+            //             url: `/tvtime/${id}`,
+            //             data: editedShowData,
+            //             success: response => {
+            //                 console.log(response);
+            //                 window.location.replace('/tvtime/profile');
+            //             },
+            //             error: msg => {
+            //                 console.log(msg);
+            //             }
+            //         }); // ends ajax method
+            //     }

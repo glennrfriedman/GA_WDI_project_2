@@ -10,7 +10,7 @@ router.get('/profile',
     Shows.findAllForUser,
     (req, res) => {
         res.render('shows/profile', { savedShow: res.locals.savedShowData });
-});
+    });
 
 
 // show search
@@ -29,7 +29,17 @@ router.post('/search',
             viewData.episode = res.locals.showTime;
         }
         res.render('shows/search', viewData);
-});
+    });
+
+// edit show route
+router.get('/:id/edit',
+    auth.restrict,
+    Shows.findById,
+    Shows.timeById,
+    (req, res) => {
+        res.render('shows/oneShow');
+    }
+);
 
 // get show by name and 
 router.get('/:id',
@@ -48,6 +58,15 @@ router.get('/:id',
         res.render('shows/oneShow', viewData);
     });
 
+// edit show API
+router.put('/:id',
+    Shows.update,
+    (req, res) => {
+        res.json(res.locals.editedShowData);
+    }
+);
+
+// delete show API
 router.delete('/:id',
     auth.restrict,
     Shows.destroy,
