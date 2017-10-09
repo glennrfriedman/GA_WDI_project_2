@@ -48,16 +48,16 @@ router.get('/:id',
     });
 
 // edit show route
-router.get('/:id/edit',
+router.get('/:showId/edit',
     auth.restrict,
-    Shows.findAllForUser,
+    Shows.findByShowId,
     (req, res) => {
-        res.render('shows/edit', { savedShow: res.locals.savedShowData });
+        res.render('shows/edit', { showIdData: res.locals.showIdData });
     }
 );
 
 // edit show API
-router.put('/:id',
+router.put('/:showId',
     auth.restrict, 
     Shows.update,
     (req, res) => {

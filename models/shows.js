@@ -106,6 +106,22 @@ Shows.findAllForUser = (req, res, next) => {
     }).catch(err => console.log('ERROR:', err));
 } // end of findAllForUser
 
+// find by showId for edit
+Shows.findByShowId = (req, res, next) => {
+    // Find all messages to display on this user's message page. Fill me in!
+    const showId = req.params.showId;
+    console.log('--------------------------');
+    console.log('showId is + ' + showId);
+    db.manyOrNone(
+        'SELECT * FROM show_data WHERE id = $1', [showId]
+    ).then(data => {
+        console.log('--------------------------');
+        console.log('findByShowId data is ', data);
+        res.locals.showIdData = data;
+        next();
+    }).catch(err => console.log('ERROR:', err));
+} // end of findAllForUser
+
 Shows.findById = (req, res, next) => {
 
     const id = req.params.id;
@@ -152,12 +168,13 @@ Shows.timeById = (req, res, next) => {
 
 // update show 
 Shows.update = (req, res, next) => {
-    const id = req.params.id;
+    
+    const id = req.params.showId;
 
     const comments = req.body.comments;
     console.log('--------------------------');
     console.log('req.body for comments is ' + comments);
-    
+
     db.one(
         'UPDATE show_data SET comments = $1 WHERE id = $2 returning id', [comments, id]
     ).then((editedShowData) => {
