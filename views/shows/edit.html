@@ -18,17 +18,14 @@
     <div class="header">
         <br>
         <!-- <img id="logo" src="/assets/antena.png"> -->
-        <div id='title'>tv time</div>
+        <div id='title'>TV TIME</div>
         <div id='tagline'>never miss a show</div>
     </div>
-	
-		<h2>Add Comments</h2>
-        <!-- {{#showIdData}} -->
+	   {{#showIdData}}
+		<h2>Add Comments for {{{show_name}}} </h2>
         <form>
-            <textarea name='comments' id='comments' cols="40" rows="8"> {{{comments}}} </textarea>
-            <button id='edit-show' data-id="{{id}}">save comment</button>
-        </form>
-        <!-- {{/showIdData}} -->
-</body>
+            <textarea name='comments' id='comments' cols="40" rows="8">{{{comments}}}</textarea> <br>
+            <input value='save comment' id='edit-show' data-id="{{id}}">
+        </form> {{/showIdData}} </body>
 
 </html>

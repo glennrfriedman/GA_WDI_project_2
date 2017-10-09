@@ -25,34 +25,43 @@ body {
     margin-bottom: 4%;
 }
 
+#addComments {
+    background-color: #FF6500;
+    text-decoration: none;
+    border: none;
+    margin: 4px;
+    padding: 4px;
+}
+
+#addComments:hover,
+#edit-show:hover {
+    opacity: 0.5;
+}
+
 #submit_login,
 #sign_up {
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     font-size: 28px;
-    width: 40%;
+    width: 25%;
     background-color: #FF6500;
     border: none;
-    /*border-radius: 10%;*/
-    /*	-webkit-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
-	-moz-box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);
-	box-shadow: 1px -3px 25px 6px rgba(0,0,0,1);*/
 }
 
-#save_show {
+#save_show, #edit-show {
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     font-size: 14px;
     background-color: #FF6500;
     width: 40%;
     border: none;
+    text-align: center;
 }
 
 #submit_login:hover,
 #sign_up:hover,
 #save_show:hover {
-    padding: 10px;
-    cursor: pointer;
+    opacity: 0.5;
 }
 
 .login {
@@ -76,9 +85,6 @@ body {
     display: block;
     border: none;
     border-radius: 4%;
-    -webkit-box-shadow: 1px -3px 25px 6px rgba(0, 0, 0, 1);
-    -moz-box-shadow: 1px -3px 25px 6px rgba(0, 0, 0, 1);
-    box-shadow: 1px -3px 25px 6px rgba(0, 0, 0, 1);
 }
 
 input[type="submit"] {
@@ -117,8 +123,8 @@ input[type="submit"] {
     -moz-box-shadow: 1px -3px 25px 6px rgba(0, 0, 0, 1);
     box-shadow: 1px -3px 25px 6px rgba(0, 0, 0, 1);
     */
-    /*	border: 2px solid #FF6500;
-	margin: 2%;*/
+    /*  border: 2px solid #FF6500;
+    margin: 2%;*/
     /*border-radius: 10%;*/
 }
 
@@ -172,7 +178,7 @@ ul {
     padding: 0;
     border: 0;
     text-decoration: none;
-    color: white;
+    color: black;
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     font-size: 28px;

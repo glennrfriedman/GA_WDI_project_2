@@ -2,6 +2,7 @@ const axios = require('axios');
 const db = require('../db/config');
 const convertTime = require('convert-time');
 const dateformatConverter = require('dateformat-converter');
+const dateFormatLite = require("date-format-lite");
 require('dotenv').config();
 
 // this is the TV Maze api url for a multiple show search 
@@ -56,7 +57,7 @@ Shows.time = (req, res, next) => {
             url: `${timeLink}`,
             method: 'GET'
         }).then(showTime => {
-            const time = showTime.data.airdate;
+            const time = showTime.data.airdate.date("MM/DD/YYYY");
             console.log('time: ' + time);
             res.locals.showDate = time;
             res.locals.showHour = convertTime(showTime.data.airtime);
@@ -134,6 +135,8 @@ Shows.findById = (req, res, next) => {
         res.locals.oneShowData = oneShowData.data;
         console.log('--------------------------');
         console.log('oneShowData: ', res.locals.oneShowData);
+        res.locals.premiered = oneShowData.data.premiered.date("MM/DD/YYYY")
+        console.log('premiered on ' + res.locals.premiered);
         next();
     }).catch(err => {
         console.log(`error fetching show data: ${err}`)
@@ -155,7 +158,7 @@ Shows.timeById = (req, res, next) => {
         }).then(showTime => {
             res.locals.oneShowTime = showTime.data;
             console.log('showtime: ', showTime);
-            const time = showTime.data.airdate;
+            const time = showTime.data.airdate.date("MM/DD/YYYY");
             console.log('time: ' + time);
             res.locals.showDate = time;
             res.locals.showHour = convertTime(showTime.data.airtime);

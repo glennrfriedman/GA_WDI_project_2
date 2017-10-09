@@ -36,7 +36,7 @@ router.get('/:id',
     Shows.findById,
     Shows.timeById,
     (req, res) => {
-        const viewData = { oneShow: res.locals.oneShowData };
+        const viewData = { oneShow: res.locals.oneShowData, premiere: res.locals.premiered };
         // console.log(res.locals.oneShowData);
         // if i have showTime data
         if (res.locals.oneShowTime !== undefined) {
@@ -59,7 +59,7 @@ router.get('/:showId/edit',
 // edit show API
 router.put('/:showId',
     auth.restrict, 
-    Shows.update,
+    Shows.update,    
     (req, res) => {
         res.render('shows/profile')
     }

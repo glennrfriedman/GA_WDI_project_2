@@ -16,7 +16,7 @@
     <a id="profile_link" href="/tvtime/profile"> Profile </a> <br>
     <div class="header"> <br>
         <!-- <img id="logo" src="/assets/antena.png"> -->
-        <!-- <a id='profile link' href="/tvtime/profile">  --> <div id='title'>tv time</div> <!-- </a> -->
+        <div id='title'>TV TIME</div>
         <div id='tagline'>never miss a show</div>
     </div>
     <!-- searchbar from profile page -->
@@ -36,10 +36,18 @@
                 <li>On-Air: {{status}}</li>
                 <br>
                 {{#episode}}
-                <li>Next Episode: Season: {{season}}, Episode: {{number}} </li>
+                <li>Next Episode:<br> 
+                "{{name}}"<br>
+                Season: {{season}}, Episode: {{number}} <br>
+                {{showDate}} @ {{showHour}}
+                </li>
                 {{/episode}}
-                <br>
-                <li>Air Date: {{showDate}}, {{showHour}}</li>
+
+                {{^episode}}
+                <li>Next episode data not available</li>
+                {{/episode}}
+                <!-- <br>
+                <li>{{showDate}} {{showHour}}</li> -->
                 <br>
                 <!-- saves show data to database on click -->
                 <a href="/tvtime/profile">
