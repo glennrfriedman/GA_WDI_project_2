@@ -30,16 +30,6 @@ router.post('/search',
         res.render('shows/search', viewData);
     });
 
-// edit show route
-router.get('/:id/edit',
-    auth.restrict,
-    Shows.findById,
-    Shows.timeById,
-    (req, res) => {
-        res.render('shows/oneShow');
-    }
-);
-
 // get show by name and 
 router.get('/:id',
     auth.restrict,
@@ -57,11 +47,21 @@ router.get('/:id',
         res.render('shows/oneShow', viewData);
     });
 
+// edit show route
+router.get('/:id/edit',
+    auth.restrict,
+    Shows.findAllForUser,
+    (req, res) => {
+        res.render('shows/edit', { savedShow: res.locals.savedShowData });
+    }
+);
+
 // edit show API
 router.put('/:id',
+    auth.restrict, 
     Shows.update,
     (req, res) => {
-        res.json(res.locals.editedShowData);
+        res.render('shows/profile')
     }
 );
 

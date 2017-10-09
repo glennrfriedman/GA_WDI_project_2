@@ -33,48 +33,36 @@ $(document).ready(() => {
         deleteShow(id);
     });
 
+    const editShow = (id) => {
+        // ajax call to delete a color
+        const data = {comments: $('#comments').val()};
 
-}); // ends document.ready
+        console.log('--------------------------');
+        console.log('data from editShow is ' + data);
 
-            // const editShow = (id) => {
-            //     // grab values from form
-            //     const comment = $('.show-comment-input').val(),
+        $.ajax({
+            url: `/tvtime/${id}`,
+            type: 'PUT',
+            data: data.comments,
+            // if the request is successful
+            success: (data) => {
+                window.location.replace(`/tvtime/${id}`)
+            },
+            error: (err) => {
+                console.log(err);
+            }
+        })
+    }
 
-            //         // create new object to send form data in
-            //         const editedShowData = { comment: comment };
-            //     // send ajax request to edit show
-            //     $.ajax({
-            //         method: 'PUT',
-            //         url: `/tvtime/${id}`,
-            //         data: editedShowData,
-            //         success: response => {
-            //             console.log(response);
-            //             window.location.replace('/tvtime/profile');
-            //         },
-            //         error: msg => {
-            //             console.log(msg);
-            //         }
-            //     }); // ends ajax method
-            // }; // ends submit function for edited show
+     $('#edit-show').click((e) => {
+        // get the show of the color being deleted
+        const id = $(e.target).attr('data-id');
 
-            // $('.edit-show-form').on('submit', e => {
-            //         e.preventDefault(); // stops default behavior of page refresh
-            //         const id = $(e.target).attr('data-id');
-            //         const comment = $('.show-comment-input').val(),
+        console.log('--------------------------');
+        console.log('id from edit show is, ' + id);
+        // delete the show
+        editShow(id);
+    });
 
-            //             // create new object to send form data in
-            //             const editedShowData = { comment: comment };
-            //         // send ajax request to edit show
-            //         $.ajax({
-            //             method: 'PUT',
-            //             url: `/tvtime/${id}`,
-            //             data: editedShowData,
-            //             success: response => {
-            //                 console.log(response);
-            //                 window.location.replace('/tvtime/profile');
-            //             },
-            //             error: msg => {
-            //                 console.log(msg);
-            //             }
-            //         }); // ends ajax method
-            //     }
+}); 
+
