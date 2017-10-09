@@ -12,7 +12,6 @@ router.get('/profile',
         res.render('shows/profile', { savedShow: res.locals.savedShowData });
     });
 
-
 // show search
 router.post('/search',
     auth.restrict,
