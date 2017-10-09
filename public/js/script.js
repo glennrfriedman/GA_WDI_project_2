@@ -35,7 +35,7 @@ $(document).ready(() => {
 
     const editShow = (id) => {
         // ajax call to delete a color
-        const data = {comments: $('#comments').val()};
+        const data = { comments: $('#comments').val() };
 
         console.log('--------------------------');
         console.log('data from editShow is ' + data);
@@ -43,10 +43,10 @@ $(document).ready(() => {
         $.ajax({
             url: `/tvtime/${id}`,
             type: 'PUT',
-            data: data.comments,
+            data: data,
             // if the request is successful
             success: (data) => {
-                window.location.replace(`/tvtime/${id}`)
+                window.location.replace(`/tvtime/profile`)
             },
             error: (err) => {
                 console.log(err);

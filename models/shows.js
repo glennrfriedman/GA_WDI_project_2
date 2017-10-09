@@ -153,11 +153,11 @@ Shows.timeById = (req, res, next) => {
 // update show 
 Shows.update = (req, res, next) => {
     const id = req.params.id;
-    console.log('--------------------------');
-    console.log('req.body is ', req.body);
-    const comments = req.body;
+
+    const comments = req.body.comments;
     console.log('--------------------------');
     console.log('req.body for comments is ' + comments);
+    
     db.one(
         'UPDATE show_data SET comments = $1 WHERE id = $2 returning id', [comments, id]
     ).then((editedShowData) => {
