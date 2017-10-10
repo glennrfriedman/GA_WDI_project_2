@@ -6,6 +6,11 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 #main_page {
     overflow: hidden;
 }
@@ -25,17 +30,12 @@ body {
     margin-bottom: 4%;
 }
 
-#addComments {
-    background-color: #FF6500;
-    text-decoration: none;
-    border: none;
-    margin: 4px;
-    padding: 4px;
-}
-
 #addComments:hover,
-#edit-show:hover {
+#edit-show:hover,
+#save_show
+{
     opacity: 0.5;
+    cursor: pointer;
 }
 
 #submit_login,
@@ -48,14 +48,15 @@ body {
     border: none;
 }
 
-#save_show, #edit-show {
+#save_show, #edit-show, #addComments {
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
-    font-size: 14px;
     background-color: #FF6500;
-    width: 40%;
+    margin: 2%;
     border: none;
+    font-size: 20px;
     text-align: center;
+    color: black;
 }
 
 #submit_login:hover,
@@ -174,20 +175,16 @@ ul {
 
 #profile_link {
     float: right;
-    margin: 0;
-    padding: 0;
-    border: 0;
     text-decoration: none;
     color: black;
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     font-size: 28px;
-    /*width: 40%;*/
     background-color: #FF6500;
-    border: none;
     text-align: center;
 }
 
 #profile_link:hover {
     cursor: pointer;
+    opacity: 0.5;
 }
