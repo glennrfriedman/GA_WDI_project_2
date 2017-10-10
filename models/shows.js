@@ -154,7 +154,7 @@ Shows.timeById = (req, res, next) => {
             // console.log('showtime: ', showTime);
             const time = showTime.data.airdate.date("MM/DD/YYYY");
             // console.log('time: ' + time);
-            res.locals.showDate = time.date("MM/DD/YYYY");
+            res.locals.showDate = time;
             res.locals.showHour = convertTime(showTime.data.airtime);
             next();
         }).catch(err => {
