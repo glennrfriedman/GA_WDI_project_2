@@ -12,18 +12,19 @@
 </head>
 
 <body>
-    <a id="profile_link" href="/tvtime/profile">profile</a> 
+    <a id="profile_link" href="/tvtime/profile">profile</a>
+    <a href="/" id="logout" class="logout">logout</a> 
     <br>
-     <div class="header"> <br>
+      <div class="header"> <br>
         <!-- <img id="logo" src="/assets/antena.png"> -->
-        <div id='title'><a href="/tvtime/profile">TV TIME</a></div>
+        <div id='title'>TV TIME</div>
         <div id='tagline'>never miss a show</div>
     </div>
     {{#oneShow}}
     <div class='saved-shows-container'>
         <h1>{{name}}:</h1>
         <ul>
-        <li>Click image for official show site:</li><br>
+        <li>(click image for official show site)</li><br>
         <a href="{{officialSite}}"> <img src="{{image.medium}}" alt=""> </a>
         <li>Network: {{network.name}}</li>
         <li>On-Air: {{status}}</li>

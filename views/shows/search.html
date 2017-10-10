@@ -13,15 +13,17 @@
 </head>
 
 <body>
-    <a id="profile_link" href="/tvtime/profile">profile</a> <br>
+    <a id="profile_link" href="/tvtime/profile">profile</a> 
+    <a href="/" id="logout" class="logout">logout</a>
+    <br>
     <div class="header"> <br>
         <!-- <img id="logo" src="/assets/antena.png"> -->
-        <div id='title'><a href="/tvtime/profile">TV TIME</a></div>
+        <div id='title'>TV TIME</div>
         <div id='tagline'>never miss a show</div>
     </div>
     <!-- searchbar from profile page -->
     <form action="/tvtime/search" method="POST">
-          <input placeholder="Search for your shows..." name="input" type="text" class="searchbar"/>
+          <input placeholder="search for your shows..." name="input" type="text" class="searchbar"/>
     </form>
     <!-- div that shows all search results on profile page -->
     {{#show}}
@@ -44,7 +46,7 @@
                 {{/episode}}
 
                 {{^episode}}
-                <li>Next episode data not available</li>
+                <li>next episode data not available</li>
                 {{/episode}}
                 <!-- <br>
                 <li>{{showDate}} {{showHour}}</li> -->

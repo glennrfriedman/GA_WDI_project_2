@@ -14,18 +14,19 @@
 
 <body>
     <a id="profile_link" href="/tvtime/profile">profile</a>
+    <a href="/" id="logout" class="logout">logout</a>
     <br>
-    <div class="header">
-        <br>
+     <div class="header"> <br>
         <!-- <img id="logo" src="/assets/antena.png"> -->
-        <div id='title'><a href="/tvtime/profile">TV TIME</a></div>
+        <div id='title'>TV TIME</div>
         <div id='tagline'>never miss a show</div>
     </div>
 	   {{#showIdData}}
-		<h2>Add Comments for {{{show_name}}} </h2>
+		<h2>add comments for {{{show_name}}} </h2>
         <form>
             <textarea name='comments' id='comments' cols="40" rows="8">{{{comments}}}</textarea> <br>
             <input value='save comment' id='edit-show' data-id="{{id}}">
-        </form> {{/showIdData}} </body>
-
+        </form> {{/showIdData}} 
+    </body>
+    
 </html>

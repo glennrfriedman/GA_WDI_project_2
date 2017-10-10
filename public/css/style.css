@@ -3,6 +3,7 @@ body {
     text-align: center;
     background: #4682B4;
     color: white;
+    font-family: 'Raleway', sans-serif;
 }
 
 a {
@@ -32,13 +33,41 @@ a {
     margin-bottom: 4%;
 }
 
+.nav-bar {
+    display: flex;
+    text-align: row;
+    align-items: flex-start;
+    justify-content: flex-end; 
+    border: 2%;
+}
+
+#profile_link, #logout {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    font-size: 28px;
+    background-color: #FF9B00;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #4682B4;
+}
+
+#profile_link {
+    float: left;
+}
+
+#logout {
+    float: right;
+}
+
 #addComments:hover,
 #edit-show:hover,
 #save_show:hover,
 #submit_login:hover,
 #sign_up:hover,
 #save_show:hover,
-#profile_link:hover
+#profile_link:hover,
+#logout:hover
 {
     opacity: 0.5;
     cursor: pointer;
@@ -85,7 +114,7 @@ a {
     width: 40%;
     display: block;
     border: none;
-    border-radius: 4%;
+    border-radius: 5px;
 }
 
 input[type="submit"] {
@@ -132,9 +161,10 @@ input[type="submit"] {
 .searchbar {
     margin: 2%;
     padding: 1%;
-    width: 70%;
+    width: 45%;
     font-size: 28px;
     border: none;
+    justify-content: center;
 }
 
 .delete-show {
@@ -158,14 +188,6 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-#logout {
-    float: right;
-    margin-right: 4%;
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-}
-
 ul {
     text-align: center;
     list-style: none;
@@ -173,13 +195,3 @@ ul {
     margin: 0;
 }
 
-#profile_link {
-    float: right;
-    text-decoration: none;
-    color: black;
-    font-family: 'Raleway', sans-serif;
-    text-decoration: none;
-    font-size: 28px;
-    background-color: #FF9B00;
-    text-align: center;
-}

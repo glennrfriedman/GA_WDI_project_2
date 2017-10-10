@@ -13,8 +13,12 @@
 </head>
 
 <body id="profile">
-
-     <div class="header">
+    <div class='navbar'>
+        <a id="profile_link" href="/tvtime/profile">profile</a>
+        <a href="/" id="logout" class="logout">logout</a>
+    </div>
+    
+    <div class="header">
         <!-- <img id="logo" src="/assets/antena.png"> -->
         <div id='title'>TV TIME</div>
         <div id='tagline'>never miss a show</div>
@@ -23,7 +27,7 @@
     <!-- <h1>Welcome, {{}}</h1> -->
     <!-- searchbar from profile page -->
     <form action="/tvtime/search" method="POST">
-        <input placeholder="Search for your shows..." name="input" type="text" class="searchbar"/>
+        <input placeholder="search for your shows..." name="input" type="text" class="searchbar"/>
     </form>
 
     <div class='container'>
@@ -46,9 +50,6 @@
     </div>
     {{/savedShow}}
     </div>
-
-    <!-- logout to index.html (landing page) -->
-    <a href="/" id="logout" class="logout">Logout</a>
 
 </body>
 
