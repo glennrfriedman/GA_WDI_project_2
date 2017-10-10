@@ -32,7 +32,11 @@ a {
 
 #addComments:hover,
 #edit-show:hover,
-#save_show
+#save_show:hover,
+#submit_login:hover,
+#sign_up:hover,
+#save_show:hover,
+#profile_link:hover
 {
     opacity: 0.5;
     cursor: pointer;
@@ -57,12 +61,6 @@ a {
     font-size: 20px;
     text-align: center;
     color: black;
-}
-
-#submit_login:hover,
-#sign_up:hover,
-#save_show:hover {
-    opacity: 0.5;
 }
 
 .login {
@@ -182,9 +180,4 @@ ul {
     font-size: 28px;
     background-color: #FF6500;
     text-align: center;
-}
-
-#profile_link:hover {
-    cursor: pointer;
-    opacity: 0.5;
 }
