@@ -14,7 +14,7 @@ const express        	= require('express'),
 const app = express();
 
 // declare port
-const port = 3000;			
+const PORT = process.env.PORT || 3000;
 
 // body-parser setup.
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -58,7 +58,7 @@ app.get('/tvtime', (req, res) => {
 })
 
 // start the app.
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
 

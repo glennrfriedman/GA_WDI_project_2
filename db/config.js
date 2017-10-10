@@ -7,5 +7,6 @@ const connectionSettings = {
   user: 'glennfriedman'
 }
 
-const db = pgp(connectionSettings);
+const db = pgp(process.env.DATABASE_URL || cn);
+
 module.exports = db;
