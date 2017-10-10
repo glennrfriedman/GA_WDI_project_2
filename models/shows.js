@@ -17,27 +17,16 @@ Shows.search = (req, res, next) => {
     // get searchbar input
     const search = req.body.input;
 
-    console.log('Search input: ' + req.body.input);
-    console.log('--------------------------------');
+    // console.log('Search input: ' + req.body.input);
+    // console.log('--------------------------------');
 
     axios({
         url: `http://api.tvmaze.com/search/shows?q=${search}`,
         method: 'GET'
     }).then(tvData => {
-        // tvData.data => returns all shows matched with search results 
-        // each show is an object with score and show info which is another object
-
-        // for(var i = 0; i < tvData.data.length; i++){
-
         res.locals.tvData = tvData.data[0].show;
-
-        // link to the source that has the next episode data 
-        // res.locals.nextEpisode = tvData.data[0]._links;
-        // console.log('Next episode is: ' + res.locals.nextEpisode.nextepisode);
-
-        // }
-        console.log(res.locals.tvData);
-        console.log('--------------------------------');
+        // console.log(res.locals.tvData);
+        // console.log('--------------------------------');
         next();
     }).catch(err => {
         console.log(`error fetching show data: ${err}`)
@@ -52,17 +41,17 @@ Shows.time = (req, res, next) => {
         next();
     } else {
         const timeLink = res.locals.tvData._links.nextepisode.href;
-        console.log('show time link: ', timeLink);
+        // console.log('show time link: ', timeLink);
         axios({
             url: `${timeLink}`,
             method: 'GET'
         }).then(showTime => {
             const time = showTime.data.airdate.date("MM/DD/YYYY");
-            console.log('time: ' + time);
+            // console.log('time: ' + time);
             res.locals.showDate = time;
             res.locals.showHour = convertTime(showTime.data.airtime);
             res.locals.showTime = showTime.data;
-            console.log('showtime: ', showTime);
+            // console.log('showtime: ', showTime);
             next();
         }).catch(err => {
             console.log(`error fetching show data: ${err}`)
@@ -77,9 +66,7 @@ Shows.save = (req, res, next) => {
 
     if (res.locals.tvData.network === null) {
         network = res.locals.tvData.webChannel.name;
-    }
-
-    else if (res.locals.tvData.network !== null) {
+    } else if (res.locals.tvData.network !== null) {
         network = res.locals.tvData.network.name;
     }
 
@@ -118,13 +105,13 @@ Shows.findAllForUser = (req, res, next) => {
 Shows.findByShowId = (req, res, next) => {
     // Find all messages to display on this user's message page. Fill me in!
     const showId = req.params.showId;
-    console.log('--------------------------');
-    console.log('showId is + ' + showId);
+    // console.log('--------------------------');
+    // console.log('showId is + ' + showId);
     db.manyOrNone(
         'SELECT * FROM show_data WHERE id = $1', [showId]
     ).then(data => {
-        console.log('--------------------------');
-        console.log('findByShowId data is ', data);
+        // console.log('--------------------------');
+        // console.log('findByShowId data is ', data);
         res.locals.showIdData = data;
         next();
     }).catch(err => console.log('ERROR:', err));
@@ -140,10 +127,10 @@ Shows.findById = (req, res, next) => {
         method: 'GET'
     }).then(oneShowData => {
         res.locals.oneShowData = oneShowData.data;
-        console.log('--------------------------');
-        console.log('oneShowData: ', res.locals.oneShowData);
+        // console.log('--------------------------');
+        // console.log('oneShowData: ', res.locals.oneShowData);
         res.locals.premiered = oneShowData.data.premiered.date("MM/DD/YYYY")
-        console.log('premiered on ' + res.locals.premiered);
+        // console.log('premiered on ' + res.locals.premiered);
         next();
     }).catch(err => {
         console.log(`error fetching show data: ${err}`)
@@ -158,16 +145,16 @@ Shows.timeById = (req, res, next) => {
         next();
     } else {
         const timeLink = res.locals.oneShowData._links.nextepisode.href;
-        console.log('show time link: ', timeLink);
+        // console.log('show time link: ', timeLink);
         axios({
             url: `${timeLink}`,
             method: 'GET'
         }).then(showTime => {
             res.locals.oneShowTime = showTime.data;
-            console.log('showtime: ', showTime);
+            // console.log('showtime: ', showTime);
             const time = showTime.data.airdate.date("MM/DD/YYYY");
-            console.log('time: ' + time);
-            res.locals.showDate = time;
+            // console.log('time: ' + time);
+            res.locals.showDate = time.date("MM/DD/YYYY");
             res.locals.showHour = convertTime(showTime.data.airtime);
             next();
         }).catch(err => {
@@ -178,12 +165,12 @@ Shows.timeById = (req, res, next) => {
 
 // update show 
 Shows.update = (req, res, next) => {
-    
+
     const id = req.params.showId;
 
     const comments = req.body.comments;
-    console.log('--------------------------');
-    console.log('req.body for comments is ' + comments);
+    // console.log('--------------------------');
+    // console.log('req.body for comments is ' + comments);
 
     db.one(
         'UPDATE show_data SET comments = $1 WHERE id = $2 returning id', [comments, id]
