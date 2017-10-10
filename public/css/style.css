@@ -3,7 +3,6 @@ body {
     text-align: center;
     background: #4682B4;
     color: white;
-    font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -17,16 +16,19 @@ a {
 
 #title {
     font-size: 88px;
+    color: #001D40;
+    text-decoration: none;
 }
 
 #tagline {
     font-size: 36px;
+    color: lightgrey;
 }
 
 .header {
     font-family: 'Paytone One', sans-serif;
-    /*color: #FF6500;*/
-    color: white;
+    /*color: #FF9B00;*/
+    color: papayawhip;
     margin-bottom: 4%;
 }
 
@@ -48,14 +50,14 @@ a {
     text-decoration: none;
     font-size: 28px;
     width: 25%;
-    background-color: #FF6500;
+    background-color: #FF9B00;
     border: none;
 }
 
 #save_show, #edit-show, #addComments {
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
-    background-color: #FF6500;
+    background-color: #FF9B00;
     margin: 2%;
     border: none;
     font-size: 20px;
@@ -122,7 +124,7 @@ input[type="submit"] {
     -moz-box-shadow: 1px -3px 25px 6px rgba(0, 0, 0, 1);
     box-shadow: 1px -3px 25px 6px rgba(0, 0, 0, 1);
     */
-    /*  border: 2px solid #FF6500;
+    /*  border: 2px solid #FF9B00;
     margin: 2%;*/
     /*border-radius: 10%;*/
 }
@@ -178,6 +180,6 @@ ul {
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     font-size: 28px;
-    background-color: #FF6500;
+    background-color: #FF9B00;
     text-align: center;
 }

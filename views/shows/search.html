@@ -16,7 +16,7 @@
     <a id="profile_link" href="/tvtime/profile">profile</a> <br>
     <div class="header"> <br>
         <!-- <img id="logo" src="/assets/antena.png"> -->
-        <div id='title'>TV TIME</div>
+        <div id='title'><a href="/tvtime/profile">TV TIME</a></div>
         <div id='tagline'>never miss a show</div>
     </div>
     <!-- searchbar from profile page -->
@@ -49,10 +49,21 @@
                 <!-- <br>
                 <li>{{showDate}} {{showHour}}</li> -->
                 <br>
+
                 <!-- saves show data to database on click -->
-                <a href="/tvtime/profile">
+                <form action="/tvtime/search/save" method="POST">
+                    <!-- hidden inputs for save -->
+                    <input id="show_id", type="hidden" name="show_id" value="{{id}}">
+                    <input id="show_name", type="hidden" name="show_name" value="{{name}}">
+                    <input id="on_air", type="hidden" name="on_air" value="{{status}}">
+                    <input id="image", type="hidden" name="image" value="{{image.medium}}">
+                    <input id="show_date", type="hidden" name="show_date" value="{{schedule.days}}">
+                    <input id="show_time", type="hidden" name="show_time" value="{{schedule.time}}">
+                    <input id="network", type="hidden" name="network" value="{{network.name}}">
+                    <input id="webShow", type="hidden" name="webShow" value="{{webChannel.name}}">
+                    <!-- actual save search button -->
                     <input id="save_show" type="submit" id="save-show" value="Save Show">
-                </a>
+                </form>
             </ul>
         </div>
         {{/show}}

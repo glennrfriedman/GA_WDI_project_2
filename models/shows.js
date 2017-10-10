@@ -64,19 +64,19 @@ Shows.save = (req, res, next) => {
 
     let network = '';
 
-    if (res.locals.tvData.network === null) {
-        network = res.locals.tvData.webChannel.name;
-    } else if (res.locals.tvData.network !== null) {
-        network = res.locals.tvData.network.name;
+    if (req.body.network === '') {
+        network = req.body.webShow;
+    } else if (req.body.network !== '') {
+        network = req.body.network;
     }
 
     const user_id = req.user.id,
-        show_id = res.locals.tvData.id,
-        show_name = res.locals.tvData.name,
-        on_air = res.locals.tvData.status,
-        image = res.locals.tvData.image.medium,
-        show_time = `${convertTime(res.locals.tvData.schedule.time)} EST`,
-        show_date = `${res.locals.tvData.schedule.days[0]}s`,
+        show_id = req.body.show_id,
+        show_name = req.body.show_name,
+        on_air = req.body.on_air,
+        image = req.body.image,
+        show_time = `${convertTime(req.body.show_time)} EST`,
+        show_date = `${req.body.show_date}s`,
         comments = '';
 
     db.one('INSERT INTO show_data (user_id, show_id, show_name, on_air, image, show_time, show_date, network, comments) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id', [user_id, show_id, show_name, on_air, image, show_time, show_date, network, comments])

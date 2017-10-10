@@ -18,7 +18,6 @@ router.post('/search',
     // returns all search results in an JSON from model
     Shows.search,
     Shows.time,
-    Shows.save,
     (req, res) => {
         const viewData = { show: res.locals.tvData };
         // if i have showTime data
@@ -28,6 +27,15 @@ router.post('/search',
             viewData.episode = res.locals.showTime;
         }
         res.render('shows/search', viewData);
+    });
+
+router.post('/search/save', 
+    auth.restrict, 
+    Shows.search,
+    Shows.save,
+    (req, res) => {
+        console.log('search results ', req.body);
+        res.redirect('/tvtime/profile');
     });
 
 // get show by name and 
